@@ -7,73 +7,31 @@
   "signals": [
     {
       "name": "tension",
-      "value": 0.35,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 1,
-        "step": 0.01
-      }
+      "value": 0.7
     },
     {
       "name": "radius",
-      "value": 280,
-      "bind": {
-        "input": "range",
-        "min": 20,
-        "max": 400
-      }
+      "value": 145
     },
     {
       "name": "extent",
-      "value": 180,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 360,
-        "step": 1
-      }
+      "value": 360
     },
     {
       "name": "rotate",
-      "value": 270,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 360,
-        "step": 1
-      }
+      "value": 270
     },
     {
       "name": "textSize",
-      "value": 8,
-      "bind": {
-        "input": "range",
-        "min": 2,
-        "max": 20,
-        "step": 1
-      }
+      "value": 18
     },
     {
       "name": "textOffset",
-      "value": 2,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 10,
-        "step": 1
-      }
+      "value": 2
     },
     {
       "name": "layout",
-      "value": "cluster",
-      "bind": {
-        "input": "radio",
-        "options": [
-          "tidy",
-          "cluster"
-        ]
-      }
+      "value": "cluster"
     },
     {
       "name": "colorIn",
