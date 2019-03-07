@@ -6,7 +6,7 @@
     <script type="text/javascript">
       var view;
 
-      fetch('https://raw.githubusercontent.com/zdlovett/owl_results/v0.1/ring.json')
+      fetch('../data/ring.json')
         .then(res => res.json())
         .then(spec => render(spec))
         .catch(err => console.error(err));
