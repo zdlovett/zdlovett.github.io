@@ -66,537 +66,550 @@
   ],
   "data": [
     {
-      "name": "tree",
-      "values": [
+      "id": 1,
+      "name": "London Spitfire",
+      "parent": 0
+    },
+    {
+      "id": 2,
+      "name": "Dallas Fuel",
+      "parent": 0
+    },
+    {
+      "id": 3,
+      "name": "Boston Uprising",
+      "parent": 0
+    },
+    {
+      "id": 4,
+      "name": "Washington Justice",
+      "parent": 0
+    },
+    {
+      "id": 5,
+      "name": "Shanghai Dragons",
+      "parent": 0
+    },
+    {
+      "id": 6,
+      "name": "Florida Mayhem",
+      "parent": 0
+    },
+    {
+      "id": 7,
+      "name": "Toronto Defiant",
+      "parent": 0
+    },
+    {
+      "id": 8,
+      "name": "Atlanta Reign",
+      "parent": 0
+    },
+    {
+      "id": 9,
+      "name": "Houston Outlaws",
+      "parent": 0
+    },
+    {
+      "id": 10,
+      "name": "New York Excelsior",
+      "parent": 0
+    },
+    {
+      "id": 11,
+      "name": "Seoul Dynasty",
+      "parent": 0
+    },
+    {
+      "id": 12,
+      "name": "Los Angeles Valiant",
+      "parent": 0
+    },
+    {
+      "id": 13,
+      "name": "Paris Eternal",
+      "parent": 0
+    },
+    {
+      "id": 14,
+      "name": "Vancouver Titans",
+      "parent": 0
+    },
+    {
+      "id": 15,
+      "name": "San Francisco Shock",
+      "parent": 0
+    },
+    {
+      "id": 16,
+      "name": "Chengdu Hunters",
+      "parent": 0
+    },
+    {
+      "id": 17,
+      "name": "Guangzhou Charge",
+      "parent": 0
+    },
+    {
+      "id": 18,
+      "name": "Hangzhou Spark",
+      "parent": 0
+    },
+    {
+      "id": 19,
+      "name": "Los Angeles Gladiators",
+      "parent": 0
+    },
+    {
+      "id": 20,
+      "name": "Philadelphia Fusion",
+      "parent": 0
+    },
+    {
+      "id": 0,
+      "name": "root"
+    }
+  ],
+  "transform": [
+    {
+      "type": "stratify",
+      "key": "id",
+      "parentKey": "parent"
+    },
+    {
+      "type": "tree",
+      "method": {
+        "signal": "layout"
+      },
+      "size": [
+        1,
+        1
+      ],
+      "as": [
+        "alpha",
+        "beta",
+        "depth",
+        "children"
+      ]
+    },
+    {
+      "type": "formula",
+      "expr": "(rotate + extent * datum.alpha + 270) % 360",
+      "as": "angle"
+    },
+    {
+      "type": "formula",
+      "expr": "inrange(datum.angle, [90, 270])",
+      "as": "leftside"
+    },
+    {
+      "type": "formula",
+      "expr": "originX + radius * datum.beta * cos(PI * datum.angle / 180)",
+      "as": "x"
+    },
+    {
+      "type": "formula",
+      "expr": "originY + radius * datum.beta * sin(PI * datum.angle / 180)",
+      "as": "y"
+    }
+  ]
+},
+{
+  "name": "leaves",
+  "source": "tree",
+  "transform": [
+    {
+      "type": "filter",
+      "expr": "!datum.children"
+    }
+  ]
+},
+{
+  "name": "dependencies",
+  "values": [
+    {
+      "source": 20,
+      "target": 1
+    },
+    {
+      "source": 10,
+      "target": 3
+    },
+    {
+      "source": 11,
+      "target": 19
+    },
+    {
+      "source": 18,
+      "target": 5
+    },
+    {
+      "source": 7,
+      "target": 9
+    },
+    {
+      "source": 8,
+      "target": 6
+    },
+    {
+      "source": 15,
+      "target": 2
+    },
+    {
+      "source": 16,
+      "target": 17
+    },
+    {
+      "source": 13,
+      "target": 1
+    },
+    {
+      "source": 10,
+      "target": 4
+    },
+    {
+      "source": 18,
+      "target": 12
+    },
+    {
+      "source": 14,
+      "target": 5
+    },
+    {
+      "source": 3,
+      "target": 9
+    },
+    {
+      "source": 20,
+      "target": 8
+    },
+    {
+      "source": 19,
+      "target": 15
+    },
+    {
+      "source": 2,
+      "target": 11
+    },
+    {
+      "source": 1,
+      "target": 4
+    },
+    {
+      "source": 6,
+      "target": 20
+    },
+    {
+      "source": 17,
+      "target": 2
+    },
+    {
+      "source": 11,
+      "target": 16
+    },
+    {
+      "source": 8,
+      "target": 7
+    },
+    {
+      "source": 10,
+      "target": 12
+    },
+    {
+      "source": 5,
+      "target": 3
+    },
+    {
+      "source": 9,
+      "target": 18
+    },
+    {
+      "source": 13,
+      "target": 19
+    },
+    {
+      "source": 2,
+      "target": 20
+    },
+    {
+      "source": 14,
+      "target": 17
+    },
+    {
+      "source": 16,
+      "target": 6
+    },
+    {
+      "source": 1,
+      "target": 18
+    },
+    {
+      "source": 10,
+      "target": 9
+    },
+    {
+      "source": 7,
+      "target": 12
+    },
+    {
+      "source": 14,
+      "target": 15
+    },
+    {
+      "source": 20,
+      "target": 4
+    },
+    {
+      "source": 3,
+      "target": 11
+    },
+    {
+      "source": 17,
+      "target": 6
+    },
+    {
+      "source": 15,
+      "target": 18
+    },
+    {
+      "source": 1,
+      "target": 19
+    },
+    {
+      "source": 10,
+      "target": 7
+    },
+    {
+      "source": 14,
+      "target": 12
+    },
+    {
+      "source": 5,
+      "target": 16
+    },
+    {
+      "source": 8,
+      "target": 13
+    },
+    {
+      "source": 9,
+      "target": 6
+    },
+    {
+      "source": 15,
+      "target": 4
+    },
+    {
+      "source": 2,
+      "target": 5
+    },
+    {
+      "source": 7,
+      "target": 3
+    },
+    {
+      "source": 18,
+      "target": 19
+    },
+    {
+      "source": 17,
+      "target": 12
+    },
+    {
+      "source": 10,
+      "target": 11
+    },
+    {
+      "source": 19,
+      "target": 8
+    },
+    {
+      "source": 20,
+      "target": 12
+    },
+    {
+      "source": 7,
+      "target": 16
+    },
+    {
+      "source": 14,
+      "target": 13
+    }
+  ],
+  "transform": [
+    {
+      "type": "formula",
+      "expr": "treePath('tree', datum.source, datum.target)",
+      "as": "treepath",
+      "initonly": true
+    }
+  ]
+},
+{
+  "name": "selected",
+  "source": "dependencies",
+  "transform": [
+    {
+      "type": "filter",
+      "expr": "datum.source === active || datum.target === active"
+    }
+  ]
+}
+],
+"marks": [
+{
+  "type": "text",
+  "from": {
+    "data": "leaves"
+  },
+  "encode": {
+    "enter": {
+      "text": {
+        "field": "name"
+      },
+      "baseline": {
+        "value": "middle"
+      }
+    },
+    "update": {
+      "x": {
+        "field": "x"
+      },
+      "y": {
+        "field": "y"
+      },
+      "dx": {
+        "signal": "textOffset * (datum.leftside ? -1 : 1)"
+      },
+      "angle": {
+        "signal": "datum.leftside ? datum.angle - 180 : datum.angle"
+      },
+      "align": {
+        "signal": "datum.leftside ? 'right' : 'left'"
+      },
+      "fontSize": {
+        "signal": "textSize"
+      },
+      "fontWeight": [
         {
-          "id": 1,
-          "name": "Dallas Fuel",
-          "parent": 0
+          "test": "indata('selected', 'source', datum.id)",
+          "value": "bold"
         },
         {
-          "id": 2,
-          "name": "Washington Justice",
-          "parent": 0
+          "test": "indata('selected', 'target', datum.id)",
+          "value": "bold"
         },
         {
-          "id": 3,
-          "name": "Toronto Defiant",
-          "parent": 0
-        },
-        {
-          "id": 4,
-          "name": "London Spitfire",
-          "parent": 0
-        },
-        {
-          "id": 5,
-          "name": "Seoul Dynasty",
-          "parent": 0
-        },
-        {
-          "id": 6,
-          "name": "Guangzhou Charge",
-          "parent": 0
-        },
-        {
-          "id": 7,
-          "name": "Paris Eternal",
-          "parent": 0
-        },
-        {
-          "id": 8,
-          "name": "Shanghai Dragons",
-          "parent": 0
-        },
-        {
-          "id": 9,
-          "name": "San Francisco Shock",
-          "parent": 0
-        },
-        {
-          "id": 10,
-          "name": "Vancouver Titans",
-          "parent": 0
-        },
-        {
-          "id": 11,
-          "name": "Boston Uprising",
-          "parent": 0
-        },
-        {
-          "id": 12,
-          "name": "New York Excelsior",
-          "parent": 0
-        },
-        {
-          "id": 13,
-          "name": "Florida Mayhem",
-          "parent": 0
-        },
-        {
-          "id": 14,
-          "name": "Los Angeles Valiant",
-          "parent": 0
-        },
-        {
-          "id": 15,
-          "name": "Los Angeles Gladiators",
-          "parent": 0
-        },
-        {
-          "id": 16,
-          "name": "Chengdu Hunters",
-          "parent": 0
-        },
-        {
-          "id": 17,
-          "name": "Philadelphia Fusion",
-          "parent": 0
-        },
-        {
-          "id": 18,
-          "name": "Houston Outlaws",
-          "parent": 0
-        },
-        {
-          "id": 19,
-          "name": "Atlanta Reign",
-          "parent": 0
-        },
-        {
-          "id": 20,
-          "name": "Hangzhou Spark",
-          "parent": 0
-        },
-        {
-          "id": 0,
-          "name": "root"
+          "value": null
         }
       ],
-      "transform": [
+      "fill": [
         {
-          "type": "stratify",
-          "key": "id",
-          "parentKey": "parent"
+          "test": "datum.id === active",
+          "value": "black"
         },
         {
-          "type": "tree",
-          "method": {
-            "signal": "layout"
-          },
-          "size": [
-            1,
-            1
-          ],
-          "as": [
-            "alpha",
-            "beta",
-            "depth",
-            "children"
-          ]
+          "test": "indata('selected', 'source', datum.id)",
+          "signal": "colorIn"
         },
         {
-          "type": "formula",
-          "expr": "(rotate + extent * datum.alpha + 270) % 360",
-          "as": "angle"
+          "test": "indata('selected', 'target', datum.id)",
+          "signal": "colorOut"
         },
         {
-          "type": "formula",
-          "expr": "inrange(datum.angle, [90, 270])",
-          "as": "leftside"
-        },
-        {
-          "type": "formula",
-          "expr": "originX + radius * datum.beta * cos(PI * datum.angle / 180)",
-          "as": "x"
-        },
-        {
-          "type": "formula",
-          "expr": "originY + radius * datum.beta * sin(PI * datum.angle / 180)",
-          "as": "y"
-        }
-      ]
-    },
-    {
-      "name": "leaves",
-      "source": "tree",
-      "transform": [
-        {
-          "type": "filter",
-          "expr": "!datum.children"
-        }
-      ]
-    },
-    {
-      "name": "dependencies",
-      "values": [
-        {
-          "source": 17,
-          "target": 4
-        },
-        {
-          "source": 12,
-          "target": 11
-        },
-        {
-          "source": 5,
-          "target": 15
-        },
-        {
-          "source": 20,
-          "target": 8
-        },
-        {
-          "source": 3,
-          "target": 18
-        },
-        {
-          "source": 19,
-          "target": 13
-        },
-        {
-          "source": 9,
-          "target": 1
-        },
-        {
-          "source": 16,
-          "target": 6
-        },
-        {
-          "source": 7,
-          "target": 4
-        },
-        {
-          "source": 12,
-          "target": 2
-        },
-        {
-          "source": 20,
-          "target": 14
-        },
-        {
-          "source": 10,
-          "target": 8
-        },
-        {
-          "source": 11,
-          "target": 18
-        },
-        {
-          "source": 17,
-          "target": 19
-        },
-        {
-          "source": 15,
-          "target": 9
-        },
-        {
-          "source": 1,
-          "target": 5
-        },
-        {
-          "source": 4,
-          "target": 2
-        },
-        {
-          "source": 13,
-          "target": 17
-        },
-        {
-          "source": 6,
-          "target": 1
-        },
-        {
-          "source": 5,
-          "target": 16
-        },
-        {
-          "source": 19,
-          "target": 3
-        },
-        {
-          "source": 12,
-          "target": 14
-        },
-        {
-          "source": 8,
-          "target": 11
-        },
-        {
-          "source": 18,
-          "target": 20
-        },
-        {
-          "source": 7,
-          "target": 15
-        },
-        {
-          "source": 1,
-          "target": 17
-        },
-        {
-          "source": 10,
-          "target": 6
-        },
-        {
-          "source": 16,
-          "target": 13
-        },
-        {
-          "source": 4,
-          "target": 20
-        },
-        {
-          "source": 12,
-          "target": 18
-        },
-        {
-          "source": 3,
-          "target": 14
-        },
-        {
-          "source": 10,
-          "target": 9
-        },
-        {
-          "source": 17,
-          "target": 2
-        },
-        {
-          "source": 11,
-          "target": 5
-        },
-        {
-          "source": 6,
-          "target": 13
-        },
-        {
-          "source": 9,
-          "target": 20
-        },
-        {
-          "source": 4,
-          "target": 15
-        },
-        {
-          "source": 12,
-          "target": 3
-        },
-        {
-          "source": 10,
-          "target": 14
-        },
-        {
-          "source": 8,
-          "target": 16
-        },
-        {
-          "source": 19,
-          "target": 7
-        },
-        {
-          "source": 18,
-          "target": 13
-        },
-        {
-          "source": 9,
-          "target": 2
-        },
-        {
-          "source": 1,
-          "target": 8
-        },
-        {
-          "source": 3,
-          "target": 11
-        },
-        {
-          "source": 20,
-          "target": 15
-        },
-        {
-          "source": 6,
-          "target": 14
-        },
-        {
-          "source": 12,
-          "target": 5
-        }
-      ],
-      "transform": [
-        {
-          "type": "formula",
-          "expr": "treePath('tree', datum.source, datum.target)",
-          "as": "treepath",
-          "initonly": true
-        }
-      ]
-    },
-    {
-      "name": "selected",
-      "source": "dependencies",
-      "transform": [
-        {
-          "type": "filter",
-          "expr": "datum.source === active || datum.target === active"
+          "value": "black"
         }
       ]
     }
-  ],
+  }
+},
+{
+  "type": "group",
+  "from": {
+    "facet": {
+      "name": "path",
+      "data": "dependencies",
+      "field": "treepath"
+    }
+  },
   "marks": [
     {
-      "type": "text",
+      "type": "line",
+      "interactive": false,
       "from": {
-        "data": "leaves"
+        "data": "path"
       },
       "encode": {
         "enter": {
-          "text": {
-            "field": "name"
+          "interpolate": {
+            "value": "bundle"
           },
-          "baseline": {
-            "value": "middle"
+          "strokeWidth": {
+            "value": 1.5
           }
         },
         "update": {
+          "stroke": [
+            {
+              "test": "parent.source === active",
+              "signal": "colorOut"
+            },
+            {
+              "test": "parent.target === active",
+              "signal": "colorIn"
+            },
+            {
+              "value": "steelblue"
+            }
+          ],
+          "strokeOpacity": [
+            {
+              "test": "parent.source === active || parent.target === active",
+              "value": 1
+            },
+            {
+              "value": 0.2
+            }
+          ],
+          "tension": {
+            "signal": "tension"
+          },
           "x": {
             "field": "x"
           },
           "y": {
             "field": "y"
-          },
-          "dx": {
-            "signal": "textOffset * (datum.leftside ? -1 : 1)"
-          },
-          "angle": {
-            "signal": "datum.leftside ? datum.angle - 180 : datum.angle"
-          },
-          "align": {
-            "signal": "datum.leftside ? 'right' : 'left'"
-          },
-          "fontSize": {
-            "signal": "textSize"
-          },
-          "fontWeight": [
-            {
-              "test": "indata('selected', 'source', datum.id)",
-              "value": "bold"
-            },
-            {
-              "test": "indata('selected', 'target', datum.id)",
-              "value": "bold"
-            },
-            {
-              "value": null
-            }
-          ],
-          "fill": [
-            {
-              "test": "datum.id === active",
-              "value": "black"
-            },
-            {
-              "test": "indata('selected', 'source', datum.id)",
-              "signal": "colorIn"
-            },
-            {
-              "test": "indata('selected', 'target', datum.id)",
-              "signal": "colorOut"
-            },
-            {
-              "value": "black"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "type": "group",
-      "from": {
-        "facet": {
-          "name": "path",
-          "data": "dependencies",
-          "field": "treepath"
-        }
-      },
-      "marks": [
-        {
-          "type": "line",
-          "interactive": false,
-          "from": {
-            "data": "path"
-          },
-          "encode": {
-            "enter": {
-              "interpolate": {
-                "value": "bundle"
-              },
-              "strokeWidth": {
-                "value": 1.5
-              }
-            },
-            "update": {
-              "stroke": [
-                {
-                  "test": "parent.source === active",
-                  "signal": "colorOut"
-                },
-                {
-                  "test": "parent.target === active",
-                  "signal": "colorIn"
-                },
-                {
-                  "value": "steelblue"
-                }
-              ],
-              "strokeOpacity": [
-                {
-                  "test": "parent.source === active || parent.target === active",
-                  "value": 1
-                },
-                {
-                  "value": 0.2
-                }
-              ],
-              "tension": {
-                "signal": "tension"
-              },
-              "x": {
-                "field": "x"
-              },
-              "y": {
-                "field": "y"
-              }
-            }
           }
         }
-      ]
-    }
-  ],
-  "scales": [
-    {
-      "name": "color",
-      "type": "ordinal",
-      "domain": [
-        "lost to",
-        "won against"
-      ],
-      "range": [
-        {
-          "signal": "colorIn"
-        },
-        {
-          "signal": "colorOut"
-        }
-      ]
-    }
-  ],
-  "legends": [
-    {
-      "stroke": "color",
-      "orient": "bottom-right",
-      "title": "Dependencies",
-      "symbolType": "stroke"
+      }
     }
   ]
+}
+],
+"scales": [
+{
+  "name": "color",
+  "type": "ordinal",
+  "domain": [
+    "lost to",
+    "won against"
+  ],
+  "range": [
+    {
+      "signal": "colorIn"
+    },
+    {
+      "signal": "colorOut"
+    }
+  ]
+}
+],
+"legends": [
+{
+  "stroke": "color",
+  "orient": "bottom-right",
+  "title": "Dependencies",
+  "symbolType": "stroke"
+}
+]
 }
