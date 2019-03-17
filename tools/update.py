@@ -16,7 +16,7 @@ import json
 import requests
 from datetime import datetime as dt
 
-from IPython import embed
+from tqdm import tqdm
 
 import util
 
@@ -121,8 +121,9 @@ def main():
             break
 
         print(f"sleeping {delay + 3600*2} seconds until two hours after {next_match}")
-        time.sleep(delay)
 
+        for i in tqdm(range(delay)):
+            time.sleep(1)
 
 if __name__ == "__main__":
     main()
