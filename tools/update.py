@@ -112,7 +112,7 @@ def main():
         for d in game_dates:
             next_match = d
             td = d - now
-            delay = td.total_seconds()
+            delay = int(td.total_seconds() + 3600*2)
             if delay > 0:
                 break
 
@@ -120,7 +120,7 @@ def main():
             # if we reach this point then we have passed the end of the season
             break
 
-        print(f"sleeping {delay + 3600*2} seconds until two hours after {next_match}")
+        print(f"sleeping {delay} seconds until two hours after {next_match}")
 
         for i in tqdm(range(delay)):
             time.sleep(1)
