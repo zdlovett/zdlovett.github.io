@@ -70,102 +70,102 @@
             "values": [
                 {
                     "id": 1,
-                    "name": "Boston Uprising",
-                    "parent": 0
-                },
-                {
-                    "id": 2,
-                    "name": "Paris Eternal",
-                    "parent": 0
-                },
-                {
-                    "id": 3,
-                    "name": "Hangzhou Spark",
-                    "parent": 0
-                },
-                {
-                    "id": 4,
-                    "name": "Atlanta Reign",
-                    "parent": 0
-                },
-                {
-                    "id": 5,
-                    "name": "New York Excelsior",
-                    "parent": 0
-                },
-                {
-                    "id": 6,
-                    "name": "London Spitfire",
-                    "parent": 0
-                },
-                {
-                    "id": 7,
-                    "name": "Washington Justice",
-                    "parent": 0
-                },
-                {
-                    "id": 8,
-                    "name": "Shanghai Dragons",
-                    "parent": 0
-                },
-                {
-                    "id": 9,
-                    "name": "Los Angeles Valiant",
-                    "parent": 0
-                },
-                {
-                    "id": 10,
-                    "name": "Seoul Dynasty",
-                    "parent": 0
-                },
-                {
-                    "id": 11,
-                    "name": "San Francisco Shock",
-                    "parent": 0
-                },
-                {
-                    "id": 12,
-                    "name": "Los Angeles Gladiators",
-                    "parent": 0
-                },
-                {
-                    "id": 13,
                     "name": "Chengdu Hunters",
                     "parent": 0
                 },
                 {
-                    "id": 14,
-                    "name": "Philadelphia Fusion",
-                    "parent": 0
-                },
-                {
-                    "id": 15,
-                    "name": "Florida Mayhem",
-                    "parent": 0
-                },
-                {
-                    "id": 16,
-                    "name": "Houston Outlaws",
-                    "parent": 0
-                },
-                {
-                    "id": 17,
-                    "name": "Guangzhou Charge",
-                    "parent": 0
-                },
-                {
-                    "id": 18,
-                    "name": "Vancouver Titans",
-                    "parent": 0
-                },
-                {
-                    "id": 19,
+                    "id": 2,
                     "name": "Toronto Defiant",
                     "parent": 0
                 },
                 {
-                    "id": 20,
+                    "id": 3,
+                    "name": "Boston Uprising",
+                    "parent": 0
+                },
+                {
+                    "id": 4,
+                    "name": "Los Angeles Gladiators",
+                    "parent": 0
+                },
+                {
+                    "id": 5,
+                    "name": "Guangzhou Charge",
+                    "parent": 0
+                },
+                {
+                    "id": 6,
+                    "name": "Washington Justice",
+                    "parent": 0
+                },
+                {
+                    "id": 7,
+                    "name": "Seoul Dynasty",
+                    "parent": 0
+                },
+                {
+                    "id": 8,
+                    "name": "London Spitfire",
+                    "parent": 0
+                },
+                {
+                    "id": 9,
+                    "name": "Atlanta Reign",
+                    "parent": 0
+                },
+                {
+                    "id": 10,
+                    "name": "Florida Mayhem",
+                    "parent": 0
+                },
+                {
+                    "id": 11,
+                    "name": "Paris Eternal",
+                    "parent": 0
+                },
+                {
+                    "id": 12,
                     "name": "Dallas Fuel",
+                    "parent": 0
+                },
+                {
+                    "id": 13,
+                    "name": "Philadelphia Fusion",
+                    "parent": 0
+                },
+                {
+                    "id": 14,
+                    "name": "Los Angeles Valiant",
+                    "parent": 0
+                },
+                {
+                    "id": 15,
+                    "name": "San Francisco Shock",
+                    "parent": 0
+                },
+                {
+                    "id": 16,
+                    "name": "New York Excelsior",
+                    "parent": 0
+                },
+                {
+                    "id": 17,
+                    "name": "Houston Outlaws",
+                    "parent": 0
+                },
+                {
+                    "id": 18,
+                    "name": "Hangzhou Spark",
+                    "parent": 0
+                },
+                {
+                    "id": 19,
+                    "name": "Shanghai Dragons",
+                    "parent": 0
+                },
+                {
+                    "id": 20,
+                    "name": "Vancouver Titans",
                     "parent": 0
                 },
                 {
@@ -231,268 +231,268 @@
             "name": "dependencies",
             "values": [
                 {
-                    "source": 14,
-                    "target": 6
-                },
-                {
-                    "source": 5,
-                    "target": 1
-                },
-                {
-                    "source": 10,
-                    "target": 12
-                },
-                {
-                    "source": 3,
-                    "target": 8
-                },
-                {
-                    "source": 19,
-                    "target": 16
-                },
-                {
-                    "source": 4,
-                    "target": 15
-                },
-                {
-                    "source": 11,
-                    "target": 20
-                },
-                {
                     "source": 13,
-                    "target": 17
-                },
-                {
-                    "source": 2,
-                    "target": 6
-                },
-                {
-                    "source": 5,
-                    "target": 7
-                },
-                {
-                    "source": 3,
-                    "target": 9
-                },
-                {
-                    "source": 18,
                     "target": 8
                 },
                 {
-                    "source": 1,
-                    "target": 16
+                    "source": 16,
+                    "target": 3
                 },
                 {
-                    "source": 14,
+                    "source": 7,
                     "target": 4
                 },
                 {
-                    "source": 12,
-                    "target": 11
+                    "source": 18,
+                    "target": 19
                 },
                 {
-                    "source": 20,
+                    "source": 2,
+                    "target": 17
+                },
+                {
+                    "source": 9,
                     "target": 10
-                },
-                {
-                    "source": 6,
-                    "target": 7
                 },
                 {
                     "source": 15,
+                    "target": 12
+                },
+                {
+                    "source": 1,
+                    "target": 5
+                },
+                {
+                    "source": 11,
+                    "target": 8
+                },
+                {
+                    "source": 16,
+                    "target": 6
+                },
+                {
+                    "source": 18,
                     "target": 14
                 },
                 {
-                    "source": 17,
-                    "target": 20
+                    "source": 20,
+                    "target": 19
+                },
+                {
+                    "source": 3,
+                    "target": 17
+                },
+                {
+                    "source": 13,
+                    "target": 9
+                },
+                {
+                    "source": 4,
+                    "target": 15
+                },
+                {
+                    "source": 12,
+                    "target": 7
+                },
+                {
+                    "source": 8,
+                    "target": 6
                 },
                 {
                     "source": 10,
                     "target": 13
                 },
                 {
-                    "source": 4,
-                    "target": 19
-                },
-                {
                     "source": 5,
-                    "target": 9
-                },
-                {
-                    "source": 8,
-                    "target": 1
-                },
-                {
-                    "source": 16,
-                    "target": 3
-                },
-                {
-                    "source": 2,
                     "target": 12
                 },
                 {
-                    "source": 20,
+                    "source": 7,
+                    "target": 1
+                },
+                {
+                    "source": 9,
+                    "target": 2
+                },
+                {
+                    "source": 16,
                     "target": 14
                 },
                 {
-                    "source": 18,
-                    "target": 17
-                },
-                {
-                    "source": 13,
-                    "target": 15
-                },
-                {
-                    "source": 6,
+                    "source": 19,
                     "target": 3
                 },
                 {
-                    "source": 5,
-                    "target": 16
+                    "source": 17,
+                    "target": 18
                 },
                 {
-                    "source": 19,
-                    "target": 9
+                    "source": 11,
+                    "target": 4
                 },
                 {
-                    "source": 18,
-                    "target": 11
+                    "source": 12,
+                    "target": 13
                 },
                 {
-                    "source": 14,
-                    "target": 7
+                    "source": 20,
+                    "target": 5
                 },
                 {
                     "source": 1,
                     "target": 10
                 },
                 {
-                    "source": 17,
+                    "source": 8,
+                    "target": 18
+                },
+                {
+                    "source": 16,
+                    "target": 17
+                },
+                {
+                    "source": 2,
+                    "target": 14
+                },
+                {
+                    "source": 20,
                     "target": 15
                 },
                 {
-                    "source": 11,
-                    "target": 3
+                    "source": 13,
+                    "target": 6
                 },
                 {
-                    "source": 6,
-                    "target": 12
+                    "source": 3,
+                    "target": 7
                 },
                 {
                     "source": 5,
-                    "target": 19
+                    "target": 10
                 },
                 {
-                    "source": 18,
-                    "target": 9
+                    "source": 15,
+                    "target": 18
                 },
                 {
                     "source": 8,
-                    "target": 13
+                    "target": 4
+                },
+                {
+                    "source": 16,
+                    "target": 2
+                },
+                {
+                    "source": 20,
+                    "target": 14
+                },
+                {
+                    "source": 19,
+                    "target": 1
+                },
+                {
+                    "source": 9,
+                    "target": 11
+                },
+                {
+                    "source": 17,
+                    "target": 10
+                },
+                {
+                    "source": 15,
+                    "target": 6
+                },
+                {
+                    "source": 12,
+                    "target": 19
+                },
+                {
+                    "source": 2,
+                    "target": 3
+                },
+                {
+                    "source": 18,
+                    "target": 4
+                },
+                {
+                    "source": 5,
+                    "target": 14
+                },
+                {
+                    "source": 16,
+                    "target": 7
                 },
                 {
                     "source": 4,
-                    "target": 2
+                    "target": 9
+                },
+                {
+                    "source": 13,
+                    "target": 14
+                },
+                {
+                    "source": 2,
+                    "target": 1
+                },
+                {
+                    "source": 20,
+                    "target": 11
                 },
                 {
                     "source": 16,
                     "target": 15
                 },
                 {
-                    "source": 11,
-                    "target": 7
+                    "source": 12,
+                    "target": 19
                 },
                 {
-                    "source": 20,
-                    "target": 8
+                    "source": 17,
+                    "target": 14
+                },
+                {
+                    "source": 7,
+                    "target": 6
+                },
+                {
+                    "source": 4,
+                    "target": 5
+                },
+                {
+                    "source": 2,
+                    "target": 18
+                },
+                {
+                    "source": 15,
+                    "target": 11
                 },
                 {
                     "source": 19,
+                    "target": 8
+                },
+                {
+                    "source": 3,
+                    "target": 10
+                },
+                {
+                    "source": 20,
                     "target": 1
+                },
+                {
+                    "source": 11,
+                    "target": 6
+                },
+                {
+                    "source": 7,
+                    "target": 8
                 },
                 {
                     "source": 3,
                     "target": 12
                 },
                 {
-                    "source": 17,
-                    "target": 9
-                },
-                {
-                    "source": 5,
-                    "target": 10
-                },
-                {
-                    "source": 12,
-                    "target": 4
-                },
-                {
-                    "source": 14,
-                    "target": 9
-                },
-                {
-                    "source": 19,
-                    "target": 13
-                },
-                {
-                    "source": 18,
-                    "target": 2
-                },
-                {
-                    "source": 5,
-                    "target": 11
-                },
-                {
-                    "source": 20,
-                    "target": 8
-                },
-                {
-                    "source": 16,
-                    "target": 9
-                },
-                {
-                    "source": 10,
-                    "target": 7
-                },
-                {
-                    "source": 12,
-                    "target": 17
-                },
-                {
-                    "source": 19,
-                    "target": 3
-                },
-                {
-                    "source": 11,
-                    "target": 2
-                },
-                {
-                    "source": 8,
-                    "target": 6
-                },
-                {
                     "source": 1,
-                    "target": 15
-                },
-                {
-                    "source": 18,
-                    "target": 13
-                },
-                {
-                    "source": 2,
-                    "target": 7
-                },
-                {
-                    "source": 10,
-                    "target": 6
-                },
-                {
-                    "source": 1,
-                    "target": 20
-                },
-                {
-                    "source": 13,
-                    "target": 4
+                    "target": 9
                 }
             ],
             "transform": [
