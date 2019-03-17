@@ -11,6 +11,7 @@ The general process for this is:
 5) git push to deploy it
 """
 
+import time
 import json
 import requests
 from datetime import datetime as dt
@@ -90,11 +91,39 @@ def update_ring(teams, links):
     util.dump(ring, '../owl/data/ring.json')
 
 
-if __name__ == "__main__":
-    data = get_match_data(cached=True)
-    content = data['content']
-    teams, links = get_team_wins(content)
-    game_dates = get_match_datetimes(content)
+def main():
+    while True:
+        now = dt.now()
 
-    update_ring(teams, links)
+        # pull any changes
+        util.pull()
+
+        data = get_match_data(cached=False)
+        content = data['content']
+        teams, links = get_team_wins(content)
+        update_ring(teams, links)
+
+        # push to update the site
+        util.push()
+
+        # now we need to figure out how long to sleep before the next matce
+        game_dates = get_match_datetimes(content)
+
+        for d in game_dates:
+            next_match = d
+            td = d - now
+            delay = td.total_seconds()
+            if delay > 0:
+                break
+
+        if delay < 0:
+            # if we reach this point then we have passed the end of the season
+            break
+
+        print(f"sleeping {delay + 3600*2} seconds until two hours after {next_match}")
+        time.sleep(delay)
+
+
+if __name__ == "__main__":
+    main()
 

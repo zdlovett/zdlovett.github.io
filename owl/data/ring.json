@@ -1,658 +1,674 @@
 {
-  "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "padding": 5,
-  "width": 720,
-  "height": 720,
-  "autosize": "none",
-  "signals": [
-    {
-      "name": "tension",
-      "value": 0.7
-    },
-    {
-      "name": "radius",
-      "value": 145
-    },
-    {
-      "name": "extent",
-      "value": 360
-    },
-    {
-      "name": "rotate",
-      "value": 270
-    },
-    {
-      "name": "textSize",
-      "value": 18
-    },
-    {
-      "name": "textOffset",
-      "value": 2
-    },
-    {
-      "name": "layout",
-      "value": "cluster"
-    },
-    {
-      "name": "colorIn",
-      "value": "firebrick"
-    },
-    {
-      "name": "colorOut",
-      "value": "forestgreen"
-    },
-    {
-      "name": "originX",
-      "update": "width / 2"
-    },
-    {
-      "name": "originY",
-      "update": "height / 2"
-    },
-    {
-      "name": "active",
-      "value": null,
-      "on": [
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "padding": 5,
+    "width": 720,
+    "height": 720,
+    "autosize": "none",
+    "signals": [
         {
-          "events": "text:mouseover",
-          "update": "datum.id"
+            "name": "tension",
+            "value": 0.7
         },
         {
-          "events": "mouseover[!event.item]",
-          "update": "null"
-        }
-      ]
-    }
-  ],
-  "data": [
-    {
-      "name": "tree",
-      "values": [
-        {
-            "id": 1,
-            "name": "Los Angeles Gladiators",
-            "parent": 0
+            "name": "radius",
+            "value": 145
         },
         {
-            "id": 2,
-            "name": "San Francisco Shock",
-            "parent": 0
+            "name": "extent",
+            "value": 360
         },
         {
-            "id": 3,
-            "name": "Dallas Fuel",
-            "parent": 0
+            "name": "rotate",
+            "value": 270
         },
         {
-            "id": 4,
-            "name": "London Spitfire",
-            "parent": 0
+            "name": "textSize",
+            "value": 18
         },
         {
-            "id": 5,
-            "name": "Los Angeles Valiant",
-            "parent": 0
+            "name": "textOffset",
+            "value": 2
         },
         {
-            "id": 6,
-            "name": "Florida Mayhem",
-            "parent": 0
+            "name": "layout",
+            "value": "cluster"
         },
         {
-            "id": 7,
-            "name": "Philadelphia Fusion",
-            "parent": 0
+            "name": "colorIn",
+            "value": "firebrick"
         },
         {
-            "id": 8,
-            "name": "Washington Justice",
-            "parent": 0
+            "name": "colorOut",
+            "value": "forestgreen"
         },
         {
-            "id": 9,
-            "name": "Chengdu Hunters",
-            "parent": 0
+            "name": "originX",
+            "update": "width / 2"
         },
         {
-            "id": 10,
-            "name": "Boston Uprising",
-            "parent": 0
+            "name": "originY",
+            "update": "height / 2"
         },
         {
-            "id": 11,
-            "name": "Toronto Defiant",
-            "parent": 0
-        },
-        {
-            "id": 12,
-            "name": "Hangzhou Spark",
-            "parent": 0
-        },
-        {
-            "id": 13,
-            "name": "Atlanta Reign",
-            "parent": 0
-        },
-        {
-            "id": 14,
-            "name": "Houston Outlaws",
-            "parent": 0
-        },
-        {
-            "id": 15,
-            "name": "Shanghai Dragons",
-            "parent": 0
-        },
-        {
-            "id": 16,
-            "name": "New York Excelsior",
-            "parent": 0
-        },
-        {
-            "id": 17,
-            "name": "Vancouver Titans",
-            "parent": 0
-        },
-        {
-            "id": 18,
-            "name": "Guangzhou Charge",
-            "parent": 0
-        },
-        {
-            "id": 19,
-            "name": "Paris Eternal",
-            "parent": 0
-        },
-        {
-            "id": 20,
-            "name": "Seoul Dynasty",
-            "parent": 0
-        },
-        {
-            "id": 0,
-            "name": "root"
+            "name": "active",
+            "value": null,
+            "on": [
+                {
+                    "events": "text:mouseover",
+                    "update": "datum.id"
+                },
+                {
+                    "events": "mouseover[!event.item]",
+                    "update": "null"
+                }
+            ]
         }
     ],
-      "transform": [
-        {
-          "type": "stratify",
-          "key": "id",
-          "parentKey": "parent"
-        },
-        {
-          "type": "tree",
-          "method": {
-            "signal": "layout"
-          },
-          "size": [
-            1,
-            1
-          ],
-          "as": [
-            "alpha",
-            "beta",
-            "depth",
-            "children"
-          ]
-        },
-        {
-          "type": "formula",
-          "expr": "(rotate + extent * datum.alpha + 270) % 360",
-          "as": "angle"
-        },
-        {
-          "type": "formula",
-          "expr": "inrange(datum.angle, [90, 270])",
-          "as": "leftside"
-        },
-        {
-          "type": "formula",
-          "expr": "originX + radius * datum.beta * cos(PI * datum.angle / 180)",
-          "as": "x"
-        },
-        {
-          "type": "formula",
-          "expr": "originY + radius * datum.beta * sin(PI * datum.angle / 180)",
-          "as": "y"
-        }
-      ]
-    },
-    {
-      "name": "leaves",
-      "source": "tree",
-      "transform": [
-        {
-          "type": "filter",
-          "expr": "!datum.children"
-        }
-      ]
-    },
-    {
-      "name": "dependencies",
-      "values": [
-        {
-            "source": 7,
-            "target": 4
-        },
-        {
-            "source": 16,
-            "target": 10
-        },
-        {
-            "source": 20,
-            "target": 1
-        },
-        {
-            "source": 12,
-            "target": 15
-        },
-        {
-            "source": 11,
-            "target": 14
-        },
-        {
-            "source": 13,
-            "target": 6
-        },
-        {
-            "source": 2,
-            "target": 3
-        },
-        {
-            "source": 9,
-            "target": 18
-        },
-        {
-            "source": 19,
-            "target": 4
-        },
-        {
-            "source": 16,
-            "target": 8
-        },
-        {
-            "source": 12,
-            "target": 5
-        },
-        {
-            "source": 17,
-            "target": 15
-        },
-        {
-            "source": 10,
-            "target": 14
-        },
-        {
-            "source": 7,
-            "target": 13
-        },
-        {
-            "source": 1,
-            "target": 2
-        },
-        {
-            "source": 3,
-            "target": 20
-        },
-        {
-            "source": 4,
-            "target": 8
-        },
-        {
-            "source": 6,
-            "target": 7
-        },
-        {
-            "source": 18,
-            "target": 3
-        },
-        {
-            "source": 20,
-            "target": 9
-        },
-        {
-            "source": 13,
-            "target": 11
-        },
-        {
-            "source": 16,
-            "target": 5
-        },
-        {
-            "source": 15,
-            "target": 10
-        },
-        {
-            "source": 14,
-            "target": 12
-        },
-        {
-            "source": 19,
-            "target": 1
-        },
-        {
-            "source": 3,
-            "target": 7
-        },
-        {
-            "source": 17,
-            "target": 18
-        },
-        {
-            "source": 9,
-            "target": 6
-        },
-        {
-            "source": 4,
-            "target": 12
-        },
-        {
-            "source": 16,
-            "target": 14
-        },
-        {
-            "source": 11,
-            "target": 5
-        },
-        {
-            "source": 17,
-            "target": 2
-        },
-        {
-            "source": 7,
-            "target": 8
-        },
-        {
-            "source": 10,
-            "target": 20
-        },
-        {
-            "source": 18,
-            "target": 6
-        },
-        {
-            "source": 2,
-            "target": 12
-        },
-        {
-            "source": 4,
-            "target": 1
-        },
-        {
-            "source": 16,
-            "target": 11
-        },
-        {
-            "source": 17,
-            "target": 5
-        },
-        {
-            "source": 15,
-            "target": 9
-        },
-        {
-            "source": 13,
-            "target": 19
-        },
-        {
-            "source": 14,
-            "target": 6
-        },
-        {
-            "source": 2,
-            "target": 8
-        },
-        {
-            "source": 3,
-            "target": 15
-        },
-        {
-            "source": 11,
-            "target": 10
-        },
-        {
-            "source": 12,
-            "target": 1
-        },
-        {
-            "source": 18,
-            "target": 5
-        },
-        {
-            "source": 16,
-            "target": 20
-        },
-        {
-            "source": 1,
-            "target": 13
-        },
-        {
-            "source": 7,
-            "target": 5
-        },
-        {
-            "source": 11,
-            "target": 9
-        },
-        {
-            "source": 17,
-            "target": 19
-        },
-        {
-            "source": 16,
-            "target": 2
-        },
-        {
-            "source": 3,
-            "target": 15
-        },
-        {
-            "source": 14,
-            "target": 5
-        },
-        {
-            "source": 20,
-            "target": 8
-        },
-        {
-            "source": 1,
-            "target": 18
-        },
-        {
-            "source": 11,
-            "target": 12
-        },
-        {
-            "source": 2,
-            "target": 19
-        },
-        {
-            "source": 15,
-            "target": 4
-        },
-        {
-            "source": 10,
-            "target": 6
-        },
-        {
-            "source": 17,
-            "target": 9
+    "data": [
+        {
+            "name": "tree",
+            "values": [
+                {
+                    "id": 1,
+                    "name": "Seoul Dynasty",
+                    "parent": 0
+                },
+                {
+                    "id": 2,
+                    "name": "Washington Justice",
+                    "parent": 0
+                },
+                {
+                    "id": 3,
+                    "name": "Boston Uprising",
+                    "parent": 0
+                },
+                {
+                    "id": 4,
+                    "name": "London Spitfire",
+                    "parent": 0
+                },
+                {
+                    "id": 5,
+                    "name": "Shanghai Dragons",
+                    "parent": 0
+                },
+                {
+                    "id": 6,
+                    "name": "Toronto Defiant",
+                    "parent": 0
+                },
+                {
+                    "id": 7,
+                    "name": "Atlanta Reign",
+                    "parent": 0
+                },
+                {
+                    "id": 8,
+                    "name": "Hangzhou Spark",
+                    "parent": 0
+                },
+                {
+                    "id": 9,
+                    "name": "Dallas Fuel",
+                    "parent": 0
+                },
+                {
+                    "id": 10,
+                    "name": "San Francisco Shock",
+                    "parent": 0
+                },
+                {
+                    "id": 11,
+                    "name": "Florida Mayhem",
+                    "parent": 0
+                },
+                {
+                    "id": 12,
+                    "name": "Paris Eternal",
+                    "parent": 0
+                },
+                {
+                    "id": 13,
+                    "name": "Los Angeles Gladiators",
+                    "parent": 0
+                },
+                {
+                    "id": 14,
+                    "name": "Los Angeles Valiant",
+                    "parent": 0
+                },
+                {
+                    "id": 15,
+                    "name": "Houston Outlaws",
+                    "parent": 0
+                },
+                {
+                    "id": 16,
+                    "name": "Guangzhou Charge",
+                    "parent": 0
+                },
+                {
+                    "id": 17,
+                    "name": "New York Excelsior",
+                    "parent": 0
+                },
+                {
+                    "id": 18,
+                    "name": "Vancouver Titans",
+                    "parent": 0
+                },
+                {
+                    "id": 19,
+                    "name": "Philadelphia Fusion",
+                    "parent": 0
+                },
+                {
+                    "id": 20,
+                    "name": "Chengdu Hunters",
+                    "parent": 0
+                },
+                {
+                    "id": 0,
+                    "name": "root"
+                }
+            ],
+            "transform": [
+                {
+                    "type": "stratify",
+                    "key": "id",
+                    "parentKey": "parent"
+                },
+                {
+                    "type": "tree",
+                    "method": {
+                        "signal": "layout"
+                    },
+                    "size": [
+                        1,
+                        1
+                    ],
+                    "as": [
+                        "alpha",
+                        "beta",
+                        "depth",
+                        "children"
+                    ]
+                },
+                {
+                    "type": "formula",
+                    "expr": "(rotate + extent * datum.alpha + 270) % 360",
+                    "as": "angle"
+                },
+                {
+                    "type": "formula",
+                    "expr": "inrange(datum.angle, [90, 270])",
+                    "as": "leftside"
+                },
+                {
+                    "type": "formula",
+                    "expr": "originX + radius * datum.beta * cos(PI * datum.angle / 180)",
+                    "as": "x"
+                },
+                {
+                    "type": "formula",
+                    "expr": "originY + radius * datum.beta * sin(PI * datum.angle / 180)",
+                    "as": "y"
+                }
+            ]
+        },
+        {
+            "name": "leaves",
+            "source": "tree",
+            "transform": [
+                {
+                    "type": "filter",
+                    "expr": "!datum.children"
+                }
+            ]
+        },
+        {
+            "name": "dependencies",
+            "values": [
+                {
+                    "source": 19,
+                    "target": 4
+                },
+                {
+                    "source": 17,
+                    "target": 3
+                },
+                {
+                    "source": 1,
+                    "target": 13
+                },
+                {
+                    "source": 8,
+                    "target": 5
+                },
+                {
+                    "source": 6,
+                    "target": 15
+                },
+                {
+                    "source": 7,
+                    "target": 11
+                },
+                {
+                    "source": 10,
+                    "target": 9
+                },
+                {
+                    "source": 20,
+                    "target": 16
+                },
+                {
+                    "source": 12,
+                    "target": 4
+                },
+                {
+                    "source": 17,
+                    "target": 2
+                },
+                {
+                    "source": 8,
+                    "target": 14
+                },
+                {
+                    "source": 18,
+                    "target": 5
+                },
+                {
+                    "source": 3,
+                    "target": 15
+                },
+                {
+                    "source": 19,
+                    "target": 7
+                },
+                {
+                    "source": 13,
+                    "target": 10
+                },
+                {
+                    "source": 9,
+                    "target": 1
+                },
+                {
+                    "source": 4,
+                    "target": 2
+                },
+                {
+                    "source": 11,
+                    "target": 19
+                },
+                {
+                    "source": 16,
+                    "target": 9
+                },
+                {
+                    "source": 1,
+                    "target": 20
+                },
+                {
+                    "source": 7,
+                    "target": 6
+                },
+                {
+                    "source": 17,
+                    "target": 14
+                },
+                {
+                    "source": 5,
+                    "target": 3
+                },
+                {
+                    "source": 15,
+                    "target": 8
+                },
+                {
+                    "source": 12,
+                    "target": 13
+                },
+                {
+                    "source": 9,
+                    "target": 19
+                },
+                {
+                    "source": 18,
+                    "target": 16
+                },
+                {
+                    "source": 20,
+                    "target": 11
+                },
+                {
+                    "source": 4,
+                    "target": 8
+                },
+                {
+                    "source": 17,
+                    "target": 15
+                },
+                {
+                    "source": 6,
+                    "target": 14
+                },
+                {
+                    "source": 18,
+                    "target": 10
+                },
+                {
+                    "source": 19,
+                    "target": 2
+                },
+                {
+                    "source": 3,
+                    "target": 1
+                },
+                {
+                    "source": 16,
+                    "target": 11
+                },
+                {
+                    "source": 10,
+                    "target": 8
+                },
+                {
+                    "source": 4,
+                    "target": 13
+                },
+                {
+                    "source": 17,
+                    "target": 6
+                },
+                {
+                    "source": 18,
+                    "target": 14
+                },
+                {
+                    "source": 5,
+                    "target": 20
+                },
+                {
+                    "source": 7,
+                    "target": 12
+                },
+                {
+                    "source": 15,
+                    "target": 11
+                },
+                {
+                    "source": 10,
+                    "target": 2
+                },
+                {
+                    "source": 9,
+                    "target": 5
+                },
+                {
+                    "source": 6,
+                    "target": 3
+                },
+                {
+                    "source": 8,
+                    "target": 13
+                },
+                {
+                    "source": 16,
+                    "target": 14
+                },
+                {
+                    "source": 17,
+                    "target": 1
+                },
+                {
+                    "source": 13,
+                    "target": 7
+                },
+                {
+                    "source": 19,
+                    "target": 14
+                },
+                {
+                    "source": 6,
+                    "target": 20
+                },
+                {
+                    "source": 18,
+                    "target": 12
+                },
+                {
+                    "source": 17,
+                    "target": 10
+                },
+                {
+                    "source": 9,
+                    "target": 5
+                },
+                {
+                    "source": 15,
+                    "target": 14
+                },
+                {
+                    "source": 1,
+                    "target": 2
+                },
+                {
+                    "source": 13,
+                    "target": 16
+                },
+                {
+                    "source": 6,
+                    "target": 8
+                },
+                {
+                    "source": 10,
+                    "target": 12
+                },
+                {
+                    "source": 5,
+                    "target": 4
+                },
+                {
+                    "source": 3,
+                    "target": 11
+                },
+                {
+                    "source": 18,
+                    "target": 20
+                },
+                {
+                    "source": 12,
+                    "target": 2
+                },
+                {
+                    "source": 1,
+                    "target": 4
+                },
+                {
+                    "source": 3,
+                    "target": 9
+                },
+                {
+                    "source": 20,
+                    "target": 7
+                }
+            ],
+            "transform": [
+                {
+                    "type": "formula",
+                    "expr": "treePath('tree', datum.source, datum.target)",
+                    "as": "treepath",
+                    "initonly": true
+                }
+            ]
+        },
+        {
+            "name": "selected",
+            "source": "dependencies",
+            "transform": [
+                {
+                    "type": "filter",
+                    "expr": "datum.source === active || datum.target === active"
+                }
+            ]
         }
     ],
-      "transform": [
+    "marks": [
         {
-          "type": "formula",
-          "expr": "treePath('tree', datum.source, datum.target)",
-          "as": "treepath",
-          "initonly": true
-        }
-      ]
-    },
-    {
-      "name": "selected",
-      "source": "dependencies",
-      "transform": [
-        {
-          "type": "filter",
-          "expr": "datum.source === active || datum.target === active"
-        }
-      ]
-    }
-  ],
-  "marks": [
-    {
-      "type": "text",
-      "from": {
-        "data": "leaves"
-      },
-      "encode": {
-        "enter": {
-          "text": {
-            "field": "name"
-          },
-          "baseline": {
-            "value": "middle"
-          }
-        },
-        "update": {
-          "x": {
-            "field": "x"
-          },
-          "y": {
-            "field": "y"
-          },
-          "dx": {
-            "signal": "textOffset * (datum.leftside ? -1 : 1)"
-          },
-          "angle": {
-            "signal": "datum.leftside ? datum.angle - 180 : datum.angle"
-          },
-          "align": {
-            "signal": "datum.leftside ? 'right' : 'left'"
-          },
-          "fontSize": {
-            "signal": "textSize"
-          },
-          "fontWeight": [
-            {
-              "test": "indata('selected', 'source', datum.id)",
-              "value": "bold"
+            "type": "text",
+            "from": {
+                "data": "leaves"
             },
-            {
-              "test": "indata('selected', 'target', datum.id)",
-              "value": "bold"
-            },
-            {
-              "value": null
-            }
-          ],
-          "fill": [
-            {
-              "test": "datum.id === active",
-              "value": "black"
-            },
-            {
-              "test": "indata('selected', 'source', datum.id)",
-              "signal": "colorIn"
-            },
-            {
-              "test": "indata('selected', 'target', datum.id)",
-              "signal": "colorOut"
-            },
-            {
-              "value": "black"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "type": "group",
-      "from": {
-        "facet": {
-          "name": "path",
-          "data": "dependencies",
-          "field": "treepath"
-        }
-      },
-      "marks": [
-        {
-          "type": "line",
-          "interactive": false,
-          "from": {
-            "data": "path"
-          },
-          "encode": {
-            "enter": {
-              "interpolate": {
-                "value": "bundle"
-              },
-              "strokeWidth": {
-                "value": 1.5
-              }
-            },
-            "update": {
-              "stroke": [
-                {
-                  "test": "parent.source === active",
-                  "signal": "colorOut"
+            "encode": {
+                "enter": {
+                    "text": {
+                        "field": "name"
+                    },
+                    "baseline": {
+                        "value": "middle"
+                    }
                 },
-                {
-                  "test": "parent.target === active",
-                  "signal": "colorIn"
-                },
-                {
-                  "value": "steelblue"
+                "update": {
+                    "x": {
+                        "field": "x"
+                    },
+                    "y": {
+                        "field": "y"
+                    },
+                    "dx": {
+                        "signal": "textOffset * (datum.leftside ? -1 : 1)"
+                    },
+                    "angle": {
+                        "signal": "datum.leftside ? datum.angle - 180 : datum.angle"
+                    },
+                    "align": {
+                        "signal": "datum.leftside ? 'right' : 'left'"
+                    },
+                    "fontSize": {
+                        "signal": "textSize"
+                    },
+                    "fontWeight": [
+                        {
+                            "test": "indata('selected', 'source', datum.id)",
+                            "value": "bold"
+                        },
+                        {
+                            "test": "indata('selected', 'target', datum.id)",
+                            "value": "bold"
+                        },
+                        {
+                            "value": null
+                        }
+                    ],
+                    "fill": [
+                        {
+                            "test": "datum.id === active",
+                            "value": "black"
+                        },
+                        {
+                            "test": "indata('selected', 'source', datum.id)",
+                            "signal": "colorIn"
+                        },
+                        {
+                            "test": "indata('selected', 'target', datum.id)",
+                            "signal": "colorOut"
+                        },
+                        {
+                            "value": "black"
+                        }
+                    ]
                 }
-              ],
-              "strokeOpacity": [
-                {
-                  "test": "parent.source === active || parent.target === active",
-                  "value": 1
-                },
-                {
-                  "value": 0.2
-                }
-              ],
-              "tension": {
-                "signal": "tension"
-              },
-              "x": {
-                "field": "x"
-              },
-              "y": {
-                "field": "y"
-              }
             }
-          }
-        }
-      ]
-    }
-  ],
-  "scales": [
-    {
-      "name": "color",
-      "type": "ordinal",
-      "domain": [
-        "lost to",
-        "won against"
-      ],
-      "range": [
-        {
-          "signal": "colorIn"
         },
         {
-          "signal": "colorOut"
+            "type": "group",
+            "from": {
+                "facet": {
+                    "name": "path",
+                    "data": "dependencies",
+                    "field": "treepath"
+                }
+            },
+            "marks": [
+                {
+                    "type": "line",
+                    "interactive": false,
+                    "from": {
+                        "data": "path"
+                    },
+                    "encode": {
+                        "enter": {
+                            "interpolate": {
+                                "value": "bundle"
+                            },
+                            "strokeWidth": {
+                                "value": 1.5
+                            }
+                        },
+                        "update": {
+                            "stroke": [
+                                {
+                                    "test": "parent.source === active",
+                                    "signal": "colorOut"
+                                },
+                                {
+                                    "test": "parent.target === active",
+                                    "signal": "colorIn"
+                                },
+                                {
+                                    "value": "steelblue"
+                                }
+                            ],
+                            "strokeOpacity": [
+                                {
+                                    "test": "parent.source === active || parent.target === active",
+                                    "value": 1
+                                },
+                                {
+                                    "value": 0.2
+                                }
+                            ],
+                            "tension": {
+                                "signal": "tension"
+                            },
+                            "x": {
+                                "field": "x"
+                            },
+                            "y": {
+                                "field": "y"
+                            }
+                        }
+                    }
+                }
+            ]
         }
-      ]
-    }
-  ],
-  "legends": [
-    {
-      "stroke": "color",
-      "orient": "bottom-right",
-      "title": "Dependencies",
-      "symbolType": "stroke"
-    }
-  ]
+    ],
+    "scales": [
+        {
+            "name": "color",
+            "type": "ordinal",
+            "domain": [
+                "lost to",
+                "won against"
+            ],
+            "range": [
+                {
+                    "signal": "colorIn"
+                },
+                {
+                    "signal": "colorOut"
+                }
+            ]
+        }
+    ],
+    "legends": [
+        {
+            "stroke": "color",
+            "orient": "bottom-right",
+            "title": "Dependencies",
+            "symbolType": "stroke"
+        }
+    ]
 }
