@@ -8,6 +8,7 @@ from datetime import datetime as dt
 
 import util
 
+from IPython import embed
 
 def get_match_data(cached=False):
     if cached:
@@ -33,7 +34,7 @@ def get_team_wins(content):
         except KeyError:
             start = match['startDate'] / 1000
             start = dt.fromtimestamp(start)
-            print(f"No winner for match on {start}")
+            #print(f"No winner for match on {start}")
             continue
 
         competitors.remove(winner)
@@ -67,4 +68,7 @@ def get_match_datetimes(content):
 
 
 if __name__ == "__main__":
-    pass
+    data = get_match_data(cached=True)
+    teams, links = get_team_wins(data['content'])
+
+    embed()
