@@ -1,7 +1,7 @@
 """
 Helpers for getting and working with OWL API data
 """
-
+import os
 import json
 import requests
 from datetime import datetime as dt
@@ -10,16 +10,35 @@ import util
 
 from IPython import embed
 
-def get_match_data(cached=False):
+
+URLS = {
+    "matches" : "https://api.overwatchleague.com/matches",
+    "teams" : "https://api.overwatchleague.com/teams"
+}
+
+def get_data(url, cached=False):
     if cached:
-        match_data = util.load("matches")
+        match_data = util.load(os.path.split(url)[1])
     else:
-        response = requests.get("https://api.overwatchleague.com/matches")
+        response = requests.get(url)
         match_data = json.loads(response.content)
     return match_data
 
+def get_team_info(cached=False):
+    data = get_data(URLS['teams'], cached=cached)
 
-def get_team_wins(content):
+    divisions = data['owl_divisions']
+    teams = [c['competitor'] for c in data['competitors']]
+
+    embed()
+
+    return teams
+
+
+def get_team_wins(cached=False):
+    matches = get_data(URLS['matches'], cached=cached)
+    content = matches['content']
+
     "Build vega compatible json outputs given the match content"
     links = []
     teams = []
@@ -67,8 +86,9 @@ def get_match_datetimes(content):
     return game_dates
 
 
-if __name__ == "__main__":
-    data = get_match_data(cached=True)
-    teams, links = get_team_wins(data['content'])
 
-    embed()
+if __name__ == "__main__":
+    team_wins = get_team_wins(cached=True)
+
+    teams = get_team_info()
+
