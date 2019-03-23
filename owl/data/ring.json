@@ -251,6 +251,10 @@
                     "target": 7
                 },
                 {
+                    "source": 6,
+                    "target": 4
+                },
+                {
                     "source": 4,
                     "target": 20
                 },
